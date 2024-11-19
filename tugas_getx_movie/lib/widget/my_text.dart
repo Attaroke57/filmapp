@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class MyText extends StatelessWidget {
   final String title;
-  final TextStyle? style; // TextStyle sebagai parameter opsional
+  final TextStyle? style;
+  final Color? textColor;
 
   const MyText({
     required this.title,
-    this.style, // Terima TextStyle dari luar
+    this.style,
+    this.textColor,
     super.key,
   });
 
@@ -14,11 +16,12 @@ class MyText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: style ?? const TextStyle( // Jika style tidak dikirim, gunakan gaya default
-        fontSize: 12,
-        fontWeight: FontWeight.bold,
-        color: Colors.white, // Warna default
-      ),
+      style: style ??
+          const TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
     );
   }
 }

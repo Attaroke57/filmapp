@@ -33,10 +33,10 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 50,
             left: 20,
-            child: const Text(
+            child: Text(
               "GET YOUR BEST ",
               style: TextStyle(
                 color: Colors.white,
@@ -45,10 +45,10 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-           Positioned(
+           const Positioned(
             top: 100,
             left: 20,
-            child: const Text(
+            child: Text(
               "EXPERIENCE AT",
               style: TextStyle(
                 color: Colors.white,
@@ -57,10 +57,10 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-           Positioned(
+           const Positioned(
             top: 150,
             left: 20,
-            child: const Text(
+            child: Text(
               "C14HH MOVIE 4K",
               style: TextStyle(
                 color: Colors.white,

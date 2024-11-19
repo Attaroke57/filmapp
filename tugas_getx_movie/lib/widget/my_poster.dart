@@ -14,28 +14,36 @@ class MyPoster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Mendapatkan lebar layar
-    final double screenWidth = MediaQuery.of(context).size.width;
-
     return Container(
-      margin: const EdgeInsets.all(2.20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50), 
-            child: AspectRatio(
-              aspectRatio: 2.1, 
-              child: Image.network(
-                imageUrl,
-                height: 100,
-                width: screenWidth, 
-                fit: BoxFit.contain, 
+      margin: const EdgeInsets.all(3.1),
+      child: SingleChildScrollView( 
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(0),
+              child: AspectRatio(
+                aspectRatio: 2.1,
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.contain, 
+                ),
               ),
             ),
-          )
-        ],
+            const SizedBox(height: 5),
+            Text(
+              title,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }

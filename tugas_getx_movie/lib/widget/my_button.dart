@@ -1,51 +1,36 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  final String textButton;
+  final String label;
+  final VoidCallback onPressed;
   final Color backgroundColor;
-  final Color TextColor;
-  final double radius;
-  final double elevation;
-  final void Function()? onPressed;
+  final Color textColor;
 
-  const MyButton(
-    { super.key,
-    required this.textButton,
-    required this.backgroundColor,
-    required this.TextColor,
-    required this.radius,
-    required this.elevation,
-    this.onPressed,
+  const MyButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+    this.backgroundColor = const Color.fromARGB(255, 201, 181, 4),
+    this.textColor = Colors.black,
   });
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 3.0),
-          child: Container(
-            width: constraints.maxWidth,
-            child: ElevatedButton(
-              onPressed: onPressed,
-              child: Text(textButton),
-              style: ElevatedButton.styleFrom(
-               backgroundColor: backgroundColor,
-                foregroundColor: TextColor,
-                padding: EdgeInsets.symmetric(vertical: 16),
-                textStyle: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(radius),
-                ),
-                elevation: elevation,
-              ),
-            ),
-          ),
-        );
-      },
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          color: textColor,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     );
   }
 }
